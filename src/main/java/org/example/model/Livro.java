@@ -1,4 +1,4 @@
 package org.example.model;
 
-public class Livros {
+public class Livro {
 }
