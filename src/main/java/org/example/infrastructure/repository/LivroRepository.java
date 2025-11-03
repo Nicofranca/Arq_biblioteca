@@ -12,13 +12,13 @@ public class LivroRepository {
 
     }
 
-    public List<Livro> consultarTodosLivros(){
+    public List<Livro> consultarTodosLivros() throws SQLException{
         List<Livro> listarLivros = new ArrayList<>();
 
         return listarLivros;
     }
 
-    public void atualizarStatusLivro(){
+    public void atualizarStatusLivro() throws SQLException{
 
     }
 
