@@ -11,14 +11,4 @@ public class LivroService {
     public void consultarLivrosCadastrados(){
 
     }
-
-    public void registrarEmprestimo(){
-
-    }
-
-    public void registrarDevolucao(){
-
-    }
-
-
 }
