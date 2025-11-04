@@ -2,7 +2,9 @@ package org.example.view;
 
 import org.example.model.Emprestimo;
 import org.example.model.Livro;
+import org.example.model.Usuario;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class BibliotecaView {
@@ -41,7 +43,22 @@ public class BibliotecaView {
         return novoLivro;
     }
 
-    public Emprestimo cadastrarEmpprestimo(){
-        var novoEmprestimo = new Emprestimo();
+    public Emprestimo cadastrarEmprestimo(){
+        System.out.println("Insira o id do Livro: ");
+        int idLivro = scINT.nextInt();
+
+        System.out.println("Insira o id do Usuario: ");
+        int idUsuario = scINT.nextInt();
+
+        Livro livro = new Livro();
+        livro.setIdLivro(idLivro);
+
+        Usuario usuario = new Usuario();
+        usuario.setIdUsuario(idUsuario);
+
+        var novoEmprestimo = new Emprestimo(usuario,livro);
+        novoEmprestimo.setDataEmprestimo(LocalDate.now());
+
+        return novoEmprestimo;
     }
 }

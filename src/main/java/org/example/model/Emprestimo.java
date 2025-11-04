@@ -12,6 +12,17 @@ public class Emprestimo {
     public Emprestimo() {
     }
 
+    public Emprestimo(Usuario idUsuario, Livro idLivro) {
+        this.idUsuario = idUsuario;
+        this.idLivro = idLivro;
+    }
+
+    public Emprestimo(LocalDate dataEmprestimo, Usuario idUsuario, Livro idLivro) {
+        this.dataEmprestimo = dataEmprestimo;
+        this.idUsuario = idUsuario;
+        this.idLivro = idLivro;
+    }
+
     public Emprestimo(LocalDate dataEmprestimo, LocalDate dataDevolucao, Usuario idUsuario, Livro idLivro) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
