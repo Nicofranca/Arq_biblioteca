@@ -10,11 +10,10 @@ public class Livro {
     public Livro() {
     }
 
-    public Livro(String titulo, String autor, int ano, boolean disponivel) {
+    public Livro(String titulo, String autor, int ano) {
         this.titulo = titulo;
         this.autor = autor;
         this.ano = ano;
-        this.disponivel = disponivel;
     }
 
     public Livro(int idLivro, String titulo, String autor, int ano, boolean disponivel) {

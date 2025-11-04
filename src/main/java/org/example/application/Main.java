@@ -1,21 +1,22 @@
-package org.example;
+package org.example.application;
 
 import org.example.service.EmprestimoService;
 import org.example.service.LivroService;
 import org.example.view.BibliotecaView;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     public static void main(String[] args) {
-
-        BibliotecaView bibliotecaView = new BibliotecaView();
         LivroService livroService = new LivroService();
         EmprestimoService emprestimoService = new EmprestimoService();
 
+        System.out.println("--");
+
         int escolha = 0;
 
+
         do{
+            var bibliotecaView = new BibliotecaView();
             escolha = bibliotecaView.mostrarMenu();
             switch (escolha){
                 case 1 -> livroService.cadastrarLivro();
@@ -26,6 +27,6 @@ public class Main {
                     return;
                 }
             }
-        } while (escolha != 0);
+        } while (true);
     }
 }

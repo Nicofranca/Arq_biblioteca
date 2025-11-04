@@ -5,6 +5,7 @@ import org.example.model.Livro;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 public class LivroRepository {
 
     public void cadastrarLivro(Livro livro) throws SQLException{
-        String query = "INSERT INTO livro(titulo, autor, ano) VALUES (?,?,?,?)";
+        String query = "INSERT INTO livros(titulo, autor, ano) VALUES (?,?,?)";
 
         try(Connection conn = Conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -26,6 +27,24 @@ public class LivroRepository {
 
     public List<Livro> consultarTodosLivros() throws SQLException{
         List<Livro> listarLivros = new ArrayList<>();
+        String query = "SELECT id, titulo, autor, ano, disponivel FROM livros";
+
+        try(Connection conn = Conexao.conectar();
+        PreparedStatement stmt = conn.prepareStatement(query)) {
+            try(ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()){
+                    var novoLivro = new Livro();
+                    novoLivro.setIdLivro(rs.getInt("id"));
+                    novoLivro.setTitulo(rs.getString("titulo"));
+                    novoLivro.setAutor(rs.getString("autor"));
+                    novoLivro.setAno(rs.getInt("ano"));
+                    novoLivro.setDisponivel(rs.getBoolean("disponivel"));
+
+                    listarLivros.add(novoLivro);
+
+                }
+            }
+        }
 
         return listarLivros;
     }

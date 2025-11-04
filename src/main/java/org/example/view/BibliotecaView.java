@@ -1,25 +1,12 @@
 package org.example.view;
 
 import org.example.model.Livro;
-import org.example.service.EmprestimoService;
-import org.example.service.LivroService;
 
 import java.util.Scanner;
 
 public class BibliotecaView {
-    private Scanner sc = new Scanner(System.in);
-    private LivroService livroService = new LivroService();
-    private EmprestimoService emprestimoService = new EmprestimoService();
-
-    public BibliotecaView(Scanner sc, LivroService livroService, EmprestimoService emprestimoService) {
-        this.sc = sc;
-        this.livroService = livroService;
-        this.emprestimoService = emprestimoService;
-    }
-
-    public BibliotecaView() {
-
-    }
+    Scanner scINT = new Scanner(System.in);
+    Scanner scSTR = new Scanner(System.in);
 
     public int mostrarMenu(){
         System.out.println("""
@@ -29,12 +16,27 @@ public class BibliotecaView {
                 4 - Consultar Livros
                 5 - Consultar Emprestimos
                 """);
-        return capturarOpcao();
-    }
-
-    public int capturarOpcao(){
-        int escolha = sc.nextInt();
+        int escolha = scINT.nextInt();
 
         return escolha;
+    }
+
+    public int capturarOpcao(int escolha){
+        return escolha;
+    }
+
+    public Livro cadastrarLivro(){
+        System.out.println("Insira o Titulo do Livro: ");
+        String titulo = scSTR.nextLine();
+
+        System.out.println("Insira o Autor do Livro: ");
+        String autor = scSTR.nextLine();
+
+        System.out.println("Insira o Ano de Publicacao do Livro: ");
+        int anoPublicacao = scINT.nextInt();
+
+        var novoLivro = new Livro(titulo, autor, anoPublicacao);
+
+        return novoLivro;
     }
 }
