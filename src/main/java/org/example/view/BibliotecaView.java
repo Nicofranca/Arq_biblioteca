@@ -1,5 +1,6 @@
 package org.example.view;
 
+import org.example.model.Emprestimo;
 import org.example.model.Livro;
 
 import java.util.Scanner;
@@ -38,5 +39,9 @@ public class BibliotecaView {
         var novoLivro = new Livro(titulo, autor, anoPublicacao);
 
         return novoLivro;
+    }
+
+    public Emprestimo cadastrarEmpprestimo(){
+        var novoEmprestimo = new Emprestimo();
     }
 }
