@@ -18,7 +18,7 @@ public class EmprestimoService {
         Livro idLivro = novoEmprestimo.getIdLivro();
         try {
             emprestimoRepository.registrarEmprestimo(novoEmprestimo);
-            livroRepository.atualizarStatusLivro(idLivro.getIdLivro());
+            livroRepository.atualizarStatusLivroFalse(idLivro.getIdLivro());
             System.out.println("Emprestimo cadastrado com sucesso!");
         } catch (SQLException e) {
             System.out.println("Erro ao cadastrar emprestimo!");
