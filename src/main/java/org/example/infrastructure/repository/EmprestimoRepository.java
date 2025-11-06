@@ -25,6 +25,13 @@ public class EmprestimoRepository {
     }
 
     public void registrarDevolucao(Emprestimo emprestimo) throws SQLException{
-        String query = "UPDATE emprestimos SET ";
+        String query = "UPDATE emprestimos SET data_devolucao = ? WHERE id = ?";
+
+        try(Connection conn = Conexao.conectar();
+        PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setDate(1, Date.valueOf(emprestimo.getDataEmprestimo()));
+            stmt.setInt(2, emprestimo.getIdEmprestimo());
+            stmt.executeUpdate();
+        }
     }
 }
