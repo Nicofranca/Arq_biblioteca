@@ -38,9 +38,7 @@ public class BibliotecaView {
         System.out.println("Insira o Ano de Publicacao do Livro: ");
         int anoPublicacao = scINT.nextInt();
 
-        var novoLivro = new Livro(titulo, autor, anoPublicacao);
-
-        return novoLivro;
+        return new Livro(titulo, autor, anoPublicacao);
     }
 
     public Emprestimo cadastrarEmprestimo(){
@@ -60,5 +58,12 @@ public class BibliotecaView {
         novoEmprestimo.setDataEmprestimo(LocalDate.now());
 
         return novoEmprestimo;
+    }
+
+    public Emprestimo devolucao(){
+        System.out.println("Insira o id do Emprestimo: ");
+        int idEmprestimo = scINT.nextInt();
+
+        return new Emprestimo(idEmprestimo);
     }
 }

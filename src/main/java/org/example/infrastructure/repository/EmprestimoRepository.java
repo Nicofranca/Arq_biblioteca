@@ -24,7 +24,7 @@ public class EmprestimoRepository {
         }
     }
 
-    public void registrarDevolucao() throws SQLException{
-
+    public void registrarDevolucao(Emprestimo emprestimo) throws SQLException{
+        String query = "UPDATE emprestimos SET ";
     }
 }

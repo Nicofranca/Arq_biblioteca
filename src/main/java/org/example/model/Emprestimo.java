@@ -12,6 +12,10 @@ public class Emprestimo {
     public Emprestimo() {
     }
 
+    public Emprestimo(int idEmprestimo) {
+        this.idEmprestimo = idEmprestimo;
+    }
+
     public Emprestimo(Usuario idUsuario, Livro idLivro) {
         this.idUsuario = idUsuario;
         this.idLivro = idLivro;
