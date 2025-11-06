@@ -3,10 +3,7 @@ package org.example.infrastructure.repository;
 import org.example.infrastructure.Conexao;
 import org.example.model.Emprestimo;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class EmprestimoRepository {
 
@@ -33,5 +30,24 @@ public class EmprestimoRepository {
             stmt.setInt(2, emprestimo.getIdEmprestimo());
             stmt.executeUpdate();
         }
+    }
+
+    public int selectIDEmprestimos(int id) throws SQLException{
+        String query = "SELECT livro_id FROM emprestimos WHERE id = ?";
+
+        int idLivro = 0;
+
+        try(Connection conn = Conexao.conectar();
+        PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+
+            try(ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()){
+                    idLivro = rs.getInt("livro_id");
+                }
+            }
+        }
+
+        return idLivro;
     }
 }
