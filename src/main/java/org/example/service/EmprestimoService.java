@@ -27,6 +27,18 @@ public class EmprestimoService {
     }
 
     public void registrarDevolucao(){
+        Emprestimo devolucao = bibliotecaView.devolucao();
 
+        try {
+            emprestimoRepository.registrarDevolucao(devolucao);
+
+            int id = emprestimoRepository.selectIDEmprestimos(devolucao.getIdEmprestimo());
+
+            livroRepository.atualizarStatusLivroTrue(id);
+
+            System.out.println("Devolução Realizada!");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
