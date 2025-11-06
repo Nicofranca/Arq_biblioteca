@@ -50,10 +50,20 @@ public class LivroRepository {
     }
 
     public void atualizarStatusLivroFalse(int idLivro) throws SQLException{
-        String query = "UPDATE livros SET disponivel = FALSE WHERE id = ?";
+        String query = "UPDATE livros SET disponivel = false WHERE id = ?";
 
         try(Connection conn = Conexao.conectar();
         PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, idLivro);
+            stmt.executeUpdate();
+        }
+    }
+
+    public void atualizarStatusLivroTrue(int idLivro) throws SQLException{
+        String query = "UPDATE livros SET disponivel = true WHERE id = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, idLivro);
             stmt.executeUpdate();
         }
