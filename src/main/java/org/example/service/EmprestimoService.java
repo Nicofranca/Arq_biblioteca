@@ -30,6 +30,7 @@ public class EmprestimoService {
         Emprestimo devolucao = bibliotecaView.devolucao();
 
         try {
+
             emprestimoRepository.registrarDevolucao(devolucao);
 
             int id = emprestimoRepository.selectIDEmprestimos(devolucao.getIdEmprestimo());

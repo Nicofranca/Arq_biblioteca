@@ -26,7 +26,7 @@ public class EmprestimoRepository {
 
         try(Connection conn = Conexao.conectar();
         PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setDate(1, Date.valueOf(emprestimo.getDataEmprestimo()));
+            stmt.setDate(1, Date.valueOf(emprestimo.getDataDevolucao()));
             stmt.setInt(2, emprestimo.getIdEmprestimo());
             stmt.executeUpdate();
         }

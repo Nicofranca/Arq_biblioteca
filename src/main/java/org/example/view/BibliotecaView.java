@@ -64,6 +64,10 @@ public class BibliotecaView {
         System.out.println("Insira o id do Emprestimo: ");
         int idEmprestimo = scINT.nextInt();
 
-        return new Emprestimo(idEmprestimo);
+        var devolucao = new Emprestimo(idEmprestimo);
+        devolucao.setDataDevolucao(LocalDate.now());
+
+
+        return devolucao;
     }
 }
