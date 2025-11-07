@@ -32,7 +32,7 @@ public class LivroRepository {
         try(Connection conn = Conexao.conectar();
         PreparedStatement stmt = conn.prepareStatement(query)) {
             try(ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()){
+                while (rs.next()){
                     var novoLivro = new Livro();
                     novoLivro.setIdLivro(rs.getInt("id"));
                     novoLivro.setTitulo(rs.getString("titulo"));

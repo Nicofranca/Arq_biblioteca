@@ -4,6 +4,9 @@ import org.example.infrastructure.repository.LivroRepository;
 import org.example.model.Livro;
 import org.example.view.BibliotecaView;
 
+import java.sql.SQLException;
+import java.util.List;
+
 public class LivroService {
 
     BibliotecaView bibliotecaView = new BibliotecaView();
@@ -22,6 +25,22 @@ public class LivroService {
     }
 
     public void consultarLivrosCadastrados(){
+        var lista = new LivroRepository();
+
+        try {
+            List<Livro> listarLivros = lista.consultarTodosLivros();
+
+            for (Livro livros : listarLivros){
+                System.out.print(" - id: "+ livros.getIdLivro());
+                System.out.print(" - Titulo: " + livros.getTitulo());
+                System.out.print(" - Autor: " + livros.getAno());
+                System.out.println(" - Disponibilidade: " + livros.isDisponivel() + "\n");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
 
     }
 }
