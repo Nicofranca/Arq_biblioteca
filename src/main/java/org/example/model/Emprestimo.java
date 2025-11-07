@@ -8,6 +8,15 @@ public class Emprestimo {
     private LocalDate dataDevolucao;
     private Usuario idUsuario;
     private Livro idLivro;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Emprestimo() {
     }
@@ -34,12 +43,13 @@ public class Emprestimo {
         this.idLivro = idLivro;
     }
 
-    public Emprestimo(int idEmprestimo, LocalDate dataEmprestimo, LocalDate dataDevolucao, Usuario idUsuario, Livro idLivro) {
+    public Emprestimo(int idEmprestimo, LocalDate dataEmprestimo, LocalDate dataDevolucao, Usuario idUsuario, Livro idLivro, int id) {
         this.idEmprestimo = idEmprestimo;
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
         this.idUsuario = idUsuario;
         this.idLivro = idLivro;
+        this.id = id;
     }
 
     public int getIdEmprestimo() {

@@ -42,4 +42,12 @@ public class EmprestimoService {
             e.printStackTrace();
         }
     }
+
+    public void listarEmprestimos(){
+        try {
+            emprestimoRepository.listarEmprestimos();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

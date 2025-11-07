@@ -23,6 +23,7 @@ public class Main {
                 case 2 -> emprestimoService.registrarEmprestimo();
                 case 3 -> emprestimoService.registrarDevolucao();
                 case 4 -> livroService.consultarLivrosCadastrados();
+                case 5 -> emprestimoService.listarEmprestimos();
                 case 0 -> {
                     return;
                 }
