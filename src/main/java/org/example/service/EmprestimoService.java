@@ -7,6 +7,7 @@ import org.example.model.Livro;
 import org.example.view.BibliotecaView;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class EmprestimoService {
     BibliotecaView bibliotecaView = new BibliotecaView();
@@ -44,8 +45,16 @@ public class EmprestimoService {
     }
 
     public void listarEmprestimos(){
+
+
         try {
-            emprestimoRepository.listarEmprestimos();
+            List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimos();
+
+            for (Emprestimo emprestimo : emprestimos){
+                System.out.println("ID Livro - "+ emprestimo.getIdLivro());
+                System.out.print("ID Usuario - " + emprestimo.getIdUsuario());
+                System.out.print("Data do Emprestimo - " +emprestimo.getDataEmprestimo());
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -75,9 +75,10 @@ public class EmprestimoRepository {
 
                     emprestimo.setId(rs.getInt("id"));
                     emprestimo.setDataEmprestimo(rs.getDate("data_emprestimo").toLocalDate());
-                    emprestimo.setDataDevolucao(rs.getDate("data_devolucao").toLocalDate());
 
                     listaEmprestimo.add(emprestimo);
+
+                    return listaEmprestimo;
 
                 }
             }
