@@ -51,9 +51,9 @@ public class EmprestimoService {
             List<Emprestimo> emprestimos = emprestimoRepository.listarEmprestimos();
 
             for (Emprestimo emprestimo : emprestimos){
-                System.out.println("ID Livro - "+ emprestimo.getIdLivro());
-                System.out.print("ID Usuario - " + emprestimo.getIdUsuario());
-                System.out.print("Data do Emprestimo - " +emprestimo.getDataEmprestimo());
+                System.out.print(" - ID Livro - "+ emprestimo.getIdLivro().getIdLivro());
+                System.out.print(" - ID Usuario - " + emprestimo.getIdUsuario().getIdUsuario());
+                System.out.print(" --Data do Emprestimo - " +emprestimo.getDataEmprestimo());
             }
         } catch (SQLException e) {
             e.printStackTrace();

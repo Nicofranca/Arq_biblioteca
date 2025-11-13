@@ -13,6 +13,7 @@ public class BibliotecaView {
 
     public int mostrarMenu(){
         System.out.println("""
+                \n
                 1 - Cadastrar Livro
                 2 - Cadastrar Emprestimo
                 3 - Devolucao de Livro
